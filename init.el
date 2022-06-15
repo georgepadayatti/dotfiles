@@ -27,7 +27,7 @@
 (setq visible-bell t)
 
 ;; Configure font and font size
-(set-face-attribute 'default nil :font "Monaco" :height 180)
+(set-face-attribute 'default nil :font "Monaco" :height 150)
 
 ;; Configure theme
 (load-theme 'dracula t)
@@ -68,6 +68,13 @@
 
 ;; Make ESC quit prompts
 (global-set-key (kbd "<escape>") 'keyboard-escape-quit)
+
+;; NOTE: The first time you load your configuration on a new machine, you'll
+;; need to run the following command interactively so that mode line icons
+;; display correctly:
+;;
+;; M-x all-the-icons-install-fonts
+(use-package all-the-icons)
 
 ;; Configure doom modeline
 (use-package doom-modeline
