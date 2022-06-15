@@ -38,7 +38,7 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
-   '(exec-path-from-shell exec-path-from-shell-initialize helpful ivy-rich rainbow-delimiters doom-modeline counsel ivy command-log-mode use-package which-key spacemacs-theme markdown-mode dracula-theme)))
+   '(all-the-icons exec-path-from-shell exec-path-from-shell-initialize helpful ivy-rich rainbow-delimiters doom-modeline counsel ivy command-log-mode use-package which-key spacemacs-theme markdown-mode dracula-theme)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -69,13 +69,6 @@
 ;; Make ESC quit prompts
 (global-set-key (kbd "<escape>") 'keyboard-escape-quit)
 
-;; NOTE: The first time you load your configuration on a new machine, you'll
-;; need to run the following command interactively so that mode line icons
-;; display correctly:
-;;
-;; M-x all-the-icons-install-fonts
-(use-package all-the-icons)
-
 ;; Configure doom modeline
 (use-package doom-modeline
   :ensure t
@@ -100,6 +93,8 @@
          ("C-d" . ivy-reverse-i-search-kill))
   :config
   (ivy-mode 1))
+
+(global-set-key (kbd "C-M-j") 'counsel-switch-buffer)
 
 (use-package counsel
   :bind (("M-x" . counsel-M-x)
@@ -157,3 +152,9 @@
 
 (define-key term-raw-map (kbd "C-c C-j") 'jnm/term-toggle-mode)
 (define-key term-raw-map (kbd "C-c C-k") 'jnm/term-toggle-mode)
+
+;; Use command for meta
+(setq mac-command-modifier 'meta)
+
+;; Use option key for super
+(setq mac-option-modifier 'super)
